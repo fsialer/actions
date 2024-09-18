@@ -12,5 +12,5 @@ runs:
   using: "composite"
   steps:
     - name: hola
-      run: echo "hola S{{inputs.message}}"
+      run: echo "hola ${{inputs.message}}"
       shell: bash
