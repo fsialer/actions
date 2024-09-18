@@ -13,4 +13,6 @@ jobs:
           STEP_MY_VAR: Nivel step #definicion de variable a nivel de step
         #run: echo "valor $STEP_MY_VAR"
         run: echo "${{vars.MY_VARIABLE_2}}"
+      - name: secrets
+        run: echo "Secrets ${{secrets.MY_SECRET}}"
 
