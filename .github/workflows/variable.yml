@@ -1,0 +1,16 @@
+name: Ejemplo con variables e enterno
+on: [push]
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    env:
+      MY_VAR: mi variable de entorno #definicion de variable a nivel global
+    
+    steps:
+      - name: ls
+        env:
+          STEP_MY_VAR: Nivel step #definicion de variable a nivel de step
+
+        run: echo "valor $STEP_MY_VAR"
+
