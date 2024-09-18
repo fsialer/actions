@@ -12,9 +12,14 @@ jobs:
       #  run: |
       #    chmod +x script.sh
       #    ./script.sh
+  
       - name: ls
         run: ls -al
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.3
+        with:
+          node-version: latest
       - name: node version
         run: node --version
+      - name: Install
+        run: npm install
