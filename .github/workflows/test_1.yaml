@@ -1,6 +1,6 @@
 name: Hola mundo
 
-on: [push]
+on: [push] #Este es el evento que espera que se ejecute 
 
 jobs: #son los trabajos que se van a ejecutar
   hola: #el nombre del trabajo a ejecutar
