@@ -2,12 +2,12 @@ name: Hola mundo
 
 on: [push]
 
-jobs:
-  hola:
-    runs-on: ubuntu-latest
-    steps:
-      - name: hola mundo
-        run: echo "Hola mundo"
+jobs: #son los trabajos que se van a ejecutar
+  hola: #el nombre del trabajo a ejecutar
+    runs-on: ubuntu-latest #el SO donde se ejecutara
+    steps: #pasos que seguir
+      - name: hola mundo #pasos a seguir para ejecutar
+        run: echo "Hola mundo" #run es para ejecutar comandos
       - name: touch file
         run: touch hola.txt 
       - name: Seet text
@@ -16,6 +16,7 @@ jobs:
         run: cat hola.txt
   other:
     runs-on: ubuntu-latest
+    needs: [hola] #Este es el job que necesita para ejecutar el job
     steps:
       - name: LS
         run: ls -al
