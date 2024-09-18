@@ -11,6 +11,6 @@ jobs:
       - name: ls
         env:
           STEP_MY_VAR: Nivel step #definicion de variable a nivel de step
-
-        run: echo "valor $STEP_MY_VAR"
+        #run: echo "valor $STEP_MY_VAR"
+        run: echo "${{var.MY_VARIABLE_2}}"
 
