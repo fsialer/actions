@@ -1,6 +1,13 @@
 name: Hola mundo
 
-on: [push, pull_request] #Este es el evento que espera que se ejecute 
+#on: [push, pull_request] #Este es el evento que espera que se ejecute 
+on:
+  push: # se especifica que evento se espera a ejecutar
+    branches: # y espera a que rama afectara
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs: #son los trabajos que se van a ejecutar
   hola: #el nombre del trabajo a ejecutar
