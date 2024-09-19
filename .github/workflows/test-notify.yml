@@ -1,4 +1,4 @@
-name: Ejemplo script.sh
+name: Ejemplo notificacion
 on: [push]
 
 jobs:
@@ -7,10 +7,13 @@ jobs:
 
     steps:
         - name: Checkout code
+          id: checkout
           uses: actions/checkout@v3
 
         - name: Notificacion
           uses: rtCamp/action-slack-notify@v2.1.1
+          #succes(), failure(), alway()
+          if: steps.checkout.outcome=='success'
           env:
             SLACK_WEBHOOK: ${{secrets.WEBHOOK_URL}}
           with:
