@@ -12,5 +12,18 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{secrets.IP_AWS}} >> ~/.ssh/known_hosts
           cat ~/.ssh/known_hosts
+
       - name: Ls ssh
         run: ssh ec2-user@${{secrets.IP_AWS}} "ls -al"
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
+        if: success()
+        with:
+          host: ${{secrets.IP_AWS}}
+          username: ec2-user
+          key: ${{secrets.SSH_KEY}}
+          port: 22
+          script: |
+            cd /home/ec2-user/actions
+            git pull origin main
