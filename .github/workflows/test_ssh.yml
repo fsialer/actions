@@ -5,10 +5,12 @@ jobs:
   local-action-ssh:
     runs-on: ubuntu-latest
     steps:
-      - name: LS
+      - name: SeUp
         run: |
           mkdir -p ~/.ssh
           echo "${{secrets.SSH_KEY}}">> ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 127.0.1.1 >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{secrets.IP_AWS}} >> ~/.ssh/known_hosts
           cat ~/.ssh/known_hosts
+      - name: Ls ssh
+        run: ssh ec2-user@${{secrets.IP_AWS}} "ls -al"
